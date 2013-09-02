@@ -1,0 +1,12 @@
+<% provide(:title, 'All Lessons') %>
+<h1>All lessons</h1>
+
+<ul class="users">
+  <% (1..@number_of_classes).each do |i| %>
+    <li>
+    <%= link_to "class number #{i} ",lesson_index_path(i)%>
+    
+    </li>
+  <% end %>
+</ul>
+

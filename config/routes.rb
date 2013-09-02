@@ -1,9 +1,9 @@
 HebprojApp::Application.routes.draw do
-  root  'static_pages#home'
-
+  resources :lessons  
+  root  'static_pages#home' 
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-
+  match '/lesson-index/:id/' => 'lessons#lesson_index',via: 'get', as: :lesson_index
   
   
   
