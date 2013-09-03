@@ -1,0 +1,25 @@
+<% provide(:title, 'class index') %>
+<h1>Class number <%= @class_number %> </h1>
+
+<ul class="users">
+  <% if !@lessons.nil? %>
+    <%  @lessons.each do |lesson| %>
+      <li>
+      <%= link_to "#{lesson.class_num}.#{lesson.sub_class_num} #{lesson.name}  ",lesson_path(lesson.lesson_num)%>
+      <%= link_to "edit lesson",edit_lesson_path %>,
+      <%= link_to "delete", lesson, method: :delete,
+                                  data: { confirm: "You sure?" } %> 
+      </li>
+      <%= last_lesson=(#{lesson.sub_class_num} +1) %>
+
+    <% end %>
+  <% else %>
+    <li> no lessons yet </li>
+    <%= last_lesson=1 %>
+  <% end %>
+  <li>   <%= link_to "create new lesson",new_lesson_path(:class_num => @class_number,
+                                                          :sub_class_num => '#{last_lesson}' ) %>
+  </li>
+
+</ul>
+
