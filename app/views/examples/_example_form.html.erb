@@ -1,0 +1,26 @@
+<%= form_for(@example) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>   
+  <input name="lesson_id" type="hidden" value= <%= @current_lesson.id%> />
+  <%= @current_lesson.id%>
+    <%= f.label :verb %>
+    <%= f.text_field :verb %>
+    <%= f.label :shoresh %>
+    <%= f.text_field :shoresh %>
+    <%= f.label :shoresh_type %>
+    <%= f.text_field :shoresh_type%>
+    <%= f.label :order_num %>
+    <%= f.text_field :order_num%>
+
+  <% @languages.each do |lan| %>
+    <%lan_sen="#{lan}_sentence" %>
+    <%= f.label lan_sen.to_sym %>
+    <%= f.text_field lan_sen.to_sym %>
+  <% end %>
+    <% @languages.each do |lan| %>
+    <%lan_note="#{lan}_note" %>
+    <%= f.label lan_note.to_sym %>
+    <%= f.text_field lan_note.to_sym %>
+  <% end %>
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+<% end %>
+

@@ -20,10 +20,12 @@ class LessonsController < ApplicationController
   end
 
   def edit
+    @lesson = Lesson.find_by(params[:id])
   end
 
   def update
-    if @lesson.update_attributes(user_params)
+    @lesson = Lesson.find(params[:id])
+    if @lesson.update_attributes(lesson_params)
       flash[:success] = "Lesson updated"
       redirect_to @lesson
     else
@@ -33,6 +35,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find_by(params[:id])
+    @languages = HebprojApp::Application::LANGUAGES
   end
   
   def index

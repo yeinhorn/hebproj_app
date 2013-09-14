@@ -1,0 +1,12 @@
+<%= form_for(@word) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>   
+  <input name="lesson_id" type="hidden" value= <%= @current_lesson.id%> />
+  <%= @current_lesson.id%>
+  <% @languages.each do |lan| %>
+    <%lan_word="#{lan}" %>
+    <%= f.label lan_word.to_sym %>
+    <%= f.text_field lan_word.to_sym %>
+  <% end %>
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+<% end %>
+

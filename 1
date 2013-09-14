@@ -1,0 +1,17 @@
+<%= form_for(@example) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>    
+  <% @languages.each do |lan| %>
+    <%lan_sen="#{lan}_sentence" %>
+    <%lan_note="#{lan}_note" %>
+    <%lan_sen_fi="lang_sentences_h['#{lan}']" %>
+    <%lan_note_fi="lang_notes_h['#{lan}']" %>
+
+    <%= f.label lan_sen.to_sym %>
+    <%= text_field "lang_sentences_h[\"" + lan + "\"]".html_safe %>
+
+    <%= f.label lan_note.to_sym %>
+    <%= f.text_field "lang_notes_h['" + lan + "']" %>
+  <% end %>
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+<% end %>
+

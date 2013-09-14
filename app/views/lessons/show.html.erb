@@ -1,2 +1,49 @@
 <h1> <%= @lesson.class_num %>.<%= @lesson.sub_class_num %> <%= @lesson.name %></h1>
-<p>Find me in app/views/lessons/show.html.erb</p>
+
+<iframe width="560" height="315" src= "https://www.youtube.com/embed/6E2hYDIFDIU" frameborder="1" allowfullscreen></iframe>
+
+<% example_number=1 %>
+<% word_number=1 %>
+<ul class="users">
+<% if !@lesson.words.nil? %>
+  <%  @lesson.words.each do |word| %>
+    <p> word <%=word_number %> </p>
+     <% word_number=word_number+1 %>
+
+    <% @languages.each do |lan| %>    
+      <%lan_word="#{lan}" %>
+      <li><%=lan%>:  <%=word.read_attribute(lan_word) %>  </li>
+    <% end %>
+    <li><%= link_to "edit word",edit_word_path(word) %>,
+    <%= link_to "delete word", word, method: :delete,
+              data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+<% else %>
+  <li> no lessons yet </li>
+<% end %>    
+  <li>  <%= link_to "create new word",new_word_path(:lesson_id => @lesson.id) %></li>
+</ul>
+
+
+<ul class="users">
+<% if !@lesson.examples.nil? %>
+  <%  @lesson.examples.each do |example| %>
+    <p> example <%=example_number %> </p>
+     <% example_number=example_number+1 %>
+
+    <% @languages.each do |lan| %>    
+      <%lan_sen="#{lan}_sentence" %>
+      <li><%=lan%>:  <%=example.read_attribute(lan_sen) %>  </li>
+    <% end %>
+    <li><%= link_to "edit example",edit_example_path(example) %>,
+    <%= link_to "delete exampke", example, method: :delete,
+              data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+<% else %>
+  <li> no lessons yet </li>
+<% end %>    
+  <li>  <%= link_to "create new example",new_example_path(:lesson_id => @lesson.id) %></li>
+</ul>
+

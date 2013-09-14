@@ -1,5 +1,10 @@
 HebprojApp::Application.routes.draw do
-  resources :lessons  
+
+  get "words/new"
+  get "words/edit"
+  resources :lessons 
+  resources :examples 
+  resources :words  
   root  'static_pages#home' 
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
