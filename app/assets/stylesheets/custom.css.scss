@@ -1,5 +1,4 @@
 @import "bootstrap";
-
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
@@ -55,6 +54,19 @@ h2 {
   font-weight: normal;
   color: $grayLight;
 }
+
+
+h3 {
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $black;
+}
+
+
+
 
 p {
   font-size: 1.1em;
@@ -252,3 +264,38 @@ aside {
   }
 }
 
+/* yeinhon */
+/* EXPENDED */
+.course-item-list .course-item-list-header h3 {
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;
+    padding: 6px;
+    text-align: left;
+}
+
+
+
+/* right shift list */
+
+.rlist {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    text-align: right;
+
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
+/* center video */
+.center-video {
+  width: 560px;
+  height: 340px;
+  margin: 0 auto;
+}
