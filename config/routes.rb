@@ -1,5 +1,6 @@
 HebprojApp::Application.routes.draw do
 
+  devise_for :users
   get "words/new"
   get "words/edit"
   resources :lessons 
